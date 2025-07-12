@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Slider</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      background-color: white;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: black;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      color:  rgb(133, 13, 13);
+      border-bottom: 5px solid  rgb(133, 13, 13);
+      margin-left: 5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 11px;
+      color: #555;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav a.active {
+      color: rgb(133, 13, 13);
+      font-weight: bold;
+    }
+
+    nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background-color: rgb(133, 13, 13);
+    }
+
+   #btn {
+      background-color: rgb(133, 13, 13);
+      height: 30px; ;
+      width: 300px;
+      font-weight: bold;
+      color: #F8F8F8;
+      border-radius: 20px;
+
+    }
+    .buttons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    #inbtn{
+text-decoration: none;
+      font-weight: bold;
+      color: rgb(133, 13, 13);
+    }
+    #outbtn{
+      text-decoration: none;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+
+    .signup-btn {
+      background-color: rgb(133, 13, 13);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      
+    }
+
+    .slider-container {
+      display: flex;
+      max-width: 1300px;
+      margin: 50px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      background-color: white;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .left-slide {
+      flex: 1;
+      background-color: rgb(133, 13, 13);
+      color: white;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 0px;
+    }
+
+    .left-slide h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .left-slide p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .left-slide button {
+      background-color: white;
+      color: #1f1f1f;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    
+    }
+
+    .left-slide button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .right-slide {
+      flex: 1;
+      background-image: url('virikspicture/image 1.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .slider-container {
+        flex-direction: column;
+        border-radius: 20px;
+      }
+
+      .left-slide,
+      .right-slide {
+        border-radius: 0;
+      }
+
+      .right-slide {
+        height: 250px;
+      }
+    }
+    .para{
+      text-align: center;
+      font-size: 40px;
+    }
+
+    #container{
+      width: 800px;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-left: 280px;
+      
+    }
+    #element{
+      color: #666;
+      text-decoration: none;
+      
+    }
+    #element1{
+      color: rgb(133, 13, 13);
+      text-decoration: none;
+    }
+    #container2{
+      height: 30px;
+      width: 378px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-left: 450px;
+     
+    }
+    #buton{
+      height: 30px;
+      width: 100px;
+      border-radius: 20px;
+      
+    }
+    #container3{
+      height: 380;
+      width: 1390;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      
+
+    }
+    #cart1{
+      width: 430px;
+      height: 380px;
+      border: 1px solid rgb(133, 13, 13);
+      border-radius: 5px;
+      
+    }
+    .online{
+      background-color: #850D0D;
+      color: #ffffff;
+      width: 90px;
+      height: 18px;
+      border-radius: 0px 20px 20px 0px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    .up{
+      height: 55px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+    }
+    .r1{
+      width: 410px;
+      border: 1px solid rgb(133, 13, 13);
+      display: inline-flex;
+      justify-content: space-around;
+    }
+    .size{
+      font-size: 15px;
+      text-align: left;
+      margin-left: 0px;
+     
+    }
+    .size1{
+      font-size: 12px;
+      text-align: left;
+      margin-left: 40px;
+      margin-top: 5px;
+      
+    }
+    .size2{
+      font-size: 12px;
+      text-align: left;
+      margin-left: 0px;
+
+    }
+    .down{
+      height: 55px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+    }
+    .expl{
+      width: 200px;
+      height: 50px;
+      background-color: #850D0D;
+      color: white;
+      border-radius: 10px;
+      font-size: 25px;
+      font-weight: bold;
+
+    }
+    .discount{
+      margin-top: 15px;
+      width: 155px;
+      background-color: #ffffff;
+      color: #4AC84A;
+      border: 1px solid #4AC84A ;
+      border-radius: 10px;
+      font-size: 12px;
+      
+
+    }
+    .buy{
+      width: 200px;
+      height: 50px;
+      background-color: #850D0D;
+      color: white;
+      border-radius: 10px;
+      font-size: 25px;
+      font-weight: bold;
+
+    }
+    #cart2{
+      width: 430px;
+      height: 380px;
+      border: 1px solid rgb(133, 13, 13);
+      border-radius: 5px;
+      
+    }
+    .cart{
+      width: 430px;
+      height: 380px;
+      border: 1px solid rgb(133, 13, 13);
+      border-radius: 5px;
+    }
+
+
+
+
+    #explore{
+      width: 308px;
+      height: 56px;
+      font-size: 25px;
+      background-color:rgb(133, 13, 13) ;
+      border-radius: 5px;
+      color: white;
+    }
+    #container4{
+      height: 690px;
+      width: 1400px;
+      background-color: #f0f0f0;
+      display: inline-block; 
+    }
+    #container4inner{
+      width: 1315px;
+      height: 608px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 40px 40px 40px 25px;
+      
+    }
+    #part1{
+      width: 408px;
+      height: 260px;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 15px;
+      
+    }
+    .partleft{
+      height: 80px;
+      width: 280px;
+      text-align: left;
+      padding-left: 30px;
+
+    }
+    .partright{
+      height: 80px;
+      width: 128px;
+      padding-top: 50px;
+      padding-left: 0px;
+      font-size: 12px;
+      font-weight: bold;
+
+    }
+    .maintitle{
+      font-size: 17px;
+
+    }
+    .subtitle{
+      font-size: 11px;
+      padding-top: 20px;
+
+    }
+    
+
+
+    #container5{
+      background-color: #850D0D;
+      height: 150px;
+      width: 1200px;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+      border-radius: 20px;
+
+    }
+    #Attempt{
+      width: 162px;
+      height: 58px;
+      border-radius: 20px;
+    }
+    #text{
+      color: white;
+      font-size: 25px;
+    }
+    #container6{
+      width: 1323px;
+      height: 600px;
+      display: inline-flex;
+      justify-content:space-evenly;
+    }
+    #advanceplan1{
+      height: 600px;
+      width: 396px;
+      border: 2px solid black;
+      align-items: center;
+      padding-top: 30px;
+    }
+    .unorder{
+      list-style-position: inside; 
+      text-align: center;
+    }
+    .start1{
+      height: 88px;
+      width: 199px;
+      background-color: #850D0D;
+      color: #ffffff;
+      border-radius: 35px;
+    }
+    #advanceplan2{
+      height: 600px;
+      width: 396px;
+      border: 2px solid black;
+      align-items: center;
+      padding-top: 30px;
+    }
+    #advanceplan3{
+      height: 600px;
+      width: 396px;
+      border: 2px solid black;
+      align-items: center;
+      padding-top: 30px;
+    }
+    #container7{
+      height: 375px;
+      display: inline-flex;
+      background-color: #F8F8F8;
+    }
+    #leftside{
+      width: 600px;
+      height: 375x;
+    }
+    #rightside{
+      width: 800px;
+      height: 300px;
+    
+    }
+    #container8{
+      height:360px ;
+      border: 1px solid black;
+    }
+    b{
+      color:#0052F0 ;
+      font-size: 35px;
+    }
+    p{
+      font-size: 21px;
+    }
+    #red{
+      font-size: 29px;
+      color: #850D0D;
+    }
+    #black{
+      font-size: 40px;
+      color: black;
+    }
+       #student{
+      font-size: 50px;
+      color: black;
+    }
+    #boldred{
+      font-size: 50px;
+      color: #850D0D;
+    }
+    #container9{
+      height: 350px;
+      width: 1300px;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .studentsay{
+      height: 330px;
+      width: 620px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Light shadow */
+      border: none; /* No border */
+       display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      align-items: center;
+      flex-wrap: wrap;
+      text-align: left;
+  }
+  .para1{
+    font-size: 20px;
+
+  }
+  .para2{
+    font-size: 25px;
+    font-family: michroma;
+
+  }
+ 
+  .containup{
+    height: 165px;
+    width: 620px;
+
+  }
+  .containdown{
+    height: 165px;
+    width: 620px;
+    display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap
+
+  }
+  .c-left{
+    width: 310px;
+    height: 160px;
+    padding-left: 20px;
+    padding-top: 20px;
+
+  }
+  .c-right{
+    width: 310px;
+    width: 160px;
+
+  }
+  
+    #container10{
+      width: 1200px;
+      height: 700px;
+      flex-wrap: wrap;
+      display: inline-flex;
+      justify-content: space-around;
+    }
+    .box1{
+      height: 128px;
+      width: 358px;
+        background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); 
+    }
+     .box{
+      height: 128px;
+      width: 358px;
+     }
+     #container11{
+      height: 750px;
+      background-color: #850D0D;
+      color: white;
+      padding-top: 30px;
+     }
+      .no-style{
+        list-style: none;
+   
+      }
+      #main{
+        font-size: 25px;
+      }
+      .subhead{
+        font-size: 17px;
+      }
+      #upper{
+        width: 1440px;
+        padding-left: 0px;
+        flex-wrap: wrap;
+      display: inline-flex;
+      justify-content: space-around;
+      text-align: left;
+      }
+      .up1{
+        height: 150px;
+        width: 300px;
+      }
+      #middle{
+         width: 1440px;
+        padding-left: 0px;
+        flex-wrap: wrap;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: space-around;
+      text-align: left;
+      }
+      .mid1{
+        height: 280px;
+        width: 300px;
+      }
+      #lower{
+        width: 1440px;
+        padding-left: 0px;
+        flex-wrap: wrap;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: space-around;
+      text-align: left;
+      }
+      .low1{
+        height: 200px;
+        width: 300px;
+      }
+      #container12{
+       height: 556px;
+      background-color: #000000;
+      color: white; 
+      }
+      #centre1{
+        height:550px ;
+        width: 1440px;
+         display: inline;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 0px;
+      }
+      .display{
+       
+        width: 365px;
+        display: inline-flex;
+        text-align: left;
+         padding-top: 40px;
+      }
+      #container13{
+        height: 50px;
+        width: 200px;
+        background-color: white;
+        border: 20px;
+        align-items: center;
+        text-align: center;
+        display: inline-flex;
+         justify-content: space-around;
+      }
+      hr{
+        height: 2px;
+         background-color: rgb(255, 255, 255);
+          border: none; width: 100%;
+          
+      }
+      .space{
+        padding: 15px;
+      }
+
+
+   
+    
+
+    
+  </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+      <img src="virikspicture/viriks.jpeg" alt="pencil" width="150" height="50" style="margin-right: 5px;">
+      
+    </div>
+
+    <nav>
+      <a href="#" class="active">HOME</a>
+      <a href="#">CONTENT SELLER</a>
+      <a href="#">EDUCATOR</a>
+      <a href="#">LEARNER</a>
+      <a href="#">RESOURCES</a>
+      <a href="#">PRICING & PLAN</a>
+    </nav>
+    <div >
+      <button id="btn">Search or Explore your career with Viriks </button>
+        
+       </div>
+
+    <div class="buttons">
+      <a href="#" id="inbtn">SIGNIN</a>
+      <a href="#" class="signup-btn" id="outbtn">SIGNUP</a>
+    </div>
+  </header>
+
+  <div class="slider-container">
+    <div class="right-slide">
+    </div>
+    <div class="left-slide">
+      <h1> "More than just grades — we're building growth mindsets and future
+-ready skills."</h1>
+      <button> Start Now</button>
+    </div>
+  </div>
+  <p class="para">Your next favourite subject is waiting — explore now!</p><br><br>
+  <div id="container">
+      <a id="element1" href="#">Academic</a>
+      <a id="element"href="#">Web Development</a>
+      <a id="element"href="#">Job Oriented</a>
+      <a id="element"href="#">Government Exam Preparation</a>
+      <a id="element"href="#">Engineering &Medical</a>
+</div>
+     <div id="container2">
+      <button id="buton">ICSE</button>
+      <button id="buton">CBSE</button>
+      <button id="buton">STATE BOARD</button>
+     </div>
+     <br><br>
+     <div id="container3">
+      <div class="cart">
+        <div  class="online">ONLINE</div>
+        <img src="virikspicture/image 6.png" height="180" width="400">
+        <p class="size1">For JEE 2026</p>
+        <p class="size1">Starts on 8 Jul ,2025  Ends on 30 Jun , 2026</p>
+        <hr class="r1">
+        <div  class="up">
+          <div><p class="size">₹4,999<br></p>
+              <p class="size2">(FOR FULL BATCH)</p></div>
+          <div><button class="discount">Discount of 9% applied</button></div>
+        </div>
+        <div class="down">
+          <div><button class="buy">BUY NOW</button></div>
+          <div><button class="expl">EXPLORE</button></div>
+        </div>
+      </div>
+      <div class="cart">
+         <div  class="online">ONLINE</div>
+        <img src="virikspicture/image 10.png" height="180" width="400">
+        <p class="size1">For JEE 2026 Aspirants</p>
+        <p class="size1">Starts on 2 Jun ,2025  Ends on 30 Jun , 2026</p>
+        <hr class="r1">
+        <div  class="up">
+          <div><p class="size">₹4,900<br></p>
+              <p class="size2">(FOR FULL BATCH)</p></div>
+          <div><button class="discount">Discount of 9% applied</button></div>
+        </div>
+        <div class="down">
+          <div><button class="buy">BUY NOW</button></div>
+          <div><button class="expl">EXPLORE</button></div>
+        </div>
+      </div>
+      <div class="cart">
+         <div  class="online">ONLINE</div>
+        <img src="virikspicture/image 8.png" height="180" width="400">
+        <p class="size1">For CBSC 2026</p>
+        <p class="size1">Starts on 5 Jul ,2025  Ends on 25 Jun , 2026</p>
+        <hr class="r1">
+        <div  class="up">
+          <div><p class="size">₹3,199<br></p>
+              <p class="size2">(FOR FULL BATCH)</p></div>
+          <div><button class="discount">Discount of 9% applied</button></div>
+        </div>
+        <div class="down">
+          <div><button class="buy">BUY NOW</button></div>
+          <div><button class="expl">EXPLORE</button></div>
+        </div>
+      </div>
+     </div>
+     <br>
+     <br>
+     <button id="explore">Explore Academic</button>
+     <br>
+     <br>
+     <p id="red"> LEARN WITH <strong id="black">VIRIKS</strong></p>
+     <br>
+     <p class="para">Your next favourite subject is waiting — explore now!</p><br><br>
+     <div id="container4">
+     <div id="container4inner">
+      <div id="part1"> 
+        <img src="virikspicture/virtual study session_ young man studying remotely.png" alt="live class">
+        <div class="partleft"><h3 class="maintitle">ONLINE LIVE CLASSES</h3>
+        <p class="subtitle">Live classes & doubt clearing <br> sessional by Top Faculty </p></div><br><br>
+         <div class="partright"> EXPLORE >></div> 
+      </div>
+      <div id="part1">
+        <img src="virikspicture/test passed.png" alt="mock test">
+        <div class="partleft"><h3 class="maintitle">MOCK TEST</h3>
+        <p class="subtitle">Practice unlimited mock tests that get<br>you prepared to face exam like a pro </p></div> <br><br>
+        <div class="partright">EXPLORE >></div>
+      </div>
+      <div id="part1">
+        <img src="virikspicture/pavan 772.png" alt="vedio course">
+        <div class="partleft"><h3 class="maintitle">VEDIO COURSES</h3>
+        <p class="subtitle">High Quality Content for Complete<br>Conceptual Clarity</p></div>
+        <div class="partright">EXPLORE >></div>
+<br><br>
+      </div>
+      <div id="part1">
+        <img src="virikspicture/Group 50.png" alt="e-book">
+        <div class="partleft"><h3 class="maintitle">E-Books</h3>
+        <p class="subtitle">Study at your convenience with out <br>vast library of e-books</p></div>
+        <div class="partright">EXPLORE >></div>
+      </div>
+      <div id="part1">
+        <img src="virikspicture/book front.png" alt="printed book">
+        <div class="partleft"><h3 class="maintitle">PRINTED BOOKS</h3>
+        <p class="subtitle">Still want books made of paper? <br>Don’t worry, we’ve got you covered </p></div>
+        <div class="partright">EXPLORE >></div>
+      </div>
+      <div id="part1">
+        <img src="virikspicture/Illustration - pavan 6811.png" alt="free study matter">
+        <div class="partleft"><h3 class="maintitle">FREE STUDY MATERIAL</h3>
+        <p class="subtitle">Get free All Indian Level Tests and<BR> Much More</p></div>
+          <div class="partright">EXPLORE >></div>
+      </div></div> 
+     </div>
+     <br><br>
+     <div id="container5">
+      <div >
+      <p id="text">TEST |  PRIME  | 500+ Exams Covered</p>
+      <br>
+      <p id="text">All Exams one Subscription</p></div>
+      <div >
+        <button id="Attempt">Attempt Now</button>
+      </div>
+     </div>
+     <br><br>
+     <p class="para">PRICING PLANS<p>
+     <br>
+      <p class="para">Your next favourite subject is waiting — explore now!</p><br><br>
+      <div id="container6">
+        <div id="advanceplan1">
+          <h1 id="red">ADVANCE PLAN</h1>
+          <br><br>
+          <h2>Subscription</h2>
+          <h2>₹ 2999</h2>
+          <h2>Monthly Pricing Plan</h2>
+          <br><br><br><br>
+          <ul class="unorder">
+            <li>50 HD Videos</li>
+            <li>5 Personal Instructor</li>
+            <li>1,500 Active Members</li>
+          </ul>
+        <br><br><br><br><br>
+        <button class="start1">START NOW</button>
+        </div>
+        <div id="advanceplan2">
+          <h1 id="red">ADVANCE PLAN</h1>
+          <br><br>
+          <h2>Subscription</h2>
+          <h2>₹ 3999</h2>
+          <h2>Monthly Pricing Plan</h2>
+          <br><br><br><br>
+          <ul class="unorder">
+            <li>50 HD Videos</li>
+            <li>5 Personal Instructor</li>
+            <li>1,500 Active Members</li>
+             <li>Unlimited Courses</li>
+          </ul>
+        <br><br><br><br>
+        <button class="start1">START NOW</button>
+        </div>
+        <div id="advanceplan3">
+         <h1 id="red">ADVANCE PLAN</h1>
+          <br><br>
+          <h2>Subscription</h2>
+          <h2>₹ 4999</h2>
+          <h2>Monthly Pricing Plan</h2>
+          <br><br><br>
+          <ul class="unorder">
+            <li>50 HD Videos</li>
+            <li>5 Personal Instructor</li>
+            <li>1,500 Active Members</li>
+            <li>Unlimited Courses</li>
+            <li>600 Quiezzes</li>
+          </ul>
+        <br><br><br><br>
+        <button class="start1">START NOW</button>  
+        </div> 
+      </div><br><br>
+      <div id="container7">
+        <div id="leftside">
+          <br><br><br>
+          <h1>VIRIKS Learning Steps For You</h1><br><br><br>
+          <p>01. Discover the Perfect Course with Smart Filters <br><br><br>
+             02. Enroll in Your Chosen Course with Ease<br><br><br>
+             03. Master Your Field and Advance Your Career</p>
+        </div>
+        <div id="rightside">
+          <img src="virikspicture/image 11.png" alt="leader"  width="800" height="375">
+        </div>
+      </div><br><br>
+      <p class="para">Learner are Viewing</p><br><br>
+
+     <div id="container3">
+      <div class="cart">
+        <div  class="online">ONLINE</div>
+        <img src="virikspicture/image 6.png" height="180" width="400">
+        <p class="size1">For JEE 2026</p>
+        <p class="size1">Starts on 8 Jul ,2025  Ends on 30 Jun , 2026</p>
+        <hr class="r1">
+        <div  class="up">
+          <div><p class="size">₹4,999<br></p>
+              <p class="size2">(FOR FULL BATCH)</p></div>
+          <div><button class="discount">Discount of 9% applied</button></div>
+        </div>
+        <div class="down">
+          <div><button class="buy">BUY NOW</button></div>
+          <div><button class="expl">EXPLORE</button></div>
+        </div>
+      </div>
+      <div class="cart">
+         <div  class="online">ONLINE</div>
+        <img src="virikspicture/image 10.png" height="180" width="400">
+        <p class="size1">For JEE 2026 Aspirants</p>
+        <p class="size1">Starts on 2 Jun ,2025  Ends on 30 Jun , 2026</p>
+        <hr class="r1">
+        <div  class="up">
+          <div><p class="size">₹4,900<br></p>
+              <p class="size2">(FOR FULL BATCH)</p></div>
+          <div><button class="discount">Discount of 9% applied</button></div>
+        </div>
+        <div class="down">
+          <div><button class="buy">BUY NOW</button></div>
+          <div><button class="expl">EXPLORE</button></div>
+        </div>
+      </div>
+      <div class="cart">
+         <div  class="online">ONLINE</div>
+        <img src="virikspicture/image 8.png" height="180" width="400">
+        <p class="size1">For CBSC 2026</p>
+        <p class="size1">Starts on 5 Jul ,2025  Ends on 25 Jun , 2026</p>
+        <hr class="r1">
+        <div  class="up">
+          <div><p class="size">₹3,199<br></p>
+              <p class="size2">(FOR FULL BATCH)</p></div>
+          <div><button class="discount">Discount of 9% applied</button></div>
+        </div>
+        <div class="down">
+          <div><button class="buy">BUY NOW</button></div>
+          <div><button class="expl">EXPLORE</button></div>
+        </div>
+      </div>
+     </div><br><br>
+     <div id="container8">
+      <br><br>
+      <p>We collaborate with <b>250+ Companies</b></p><br><br>
+      <p>here are many variations of passages orem psum available but the majority have suffered
+         alteration in some form by injected humour.</p><br><br>
+         <img src="virikspicture/image 13.png" alt="seoha" class="space">
+         <img src="virikspicture/image 20.png" alt="callfro" class="space">
+         <img src="virikspicture/image 19.png" alt="digital" class="space">
+         <img src="virikspicture/image 15.png" alt="atlas" class="space">
+         <img src="virikspicture/image 16.png" alt="symbi"class="space">
+         <img src="virikspicture/image 17.png" alt="strato" class="space"><br><br>
+         <img src="virikspicture/image 14.png" alt="artma" class="space" >
+         <img src="virikspicture/image 18.png" alt="institu" class="space">
+         <img src="virikspicture/image 12.png" alt="nexen" class="space">
+     </div>
+     <br>
+     <br>
+     <p id="student" > What Our <b id="boldred">Students Say's</b> </p>
+     <br><br>
+     <div id="container9">
+      <div class="studentsay">
+        <div class="containup">
+        <p class="para1">there are many variations of passages of Lorem Ipsum <br>
+ but the majority have suffered alteration in some form, by<br> injected humour, or randomised words which
+  don't look even <br>slightly believable. If you are going to use a passage.</p></div>
+        <div class="containdown">
+          <div class="c-left"><p class="para2">Sylvia H Green</p><br>
+          <p class="para1">Student          ⭐⭐⭐⭐⭐</p></div>
+          <div class="c-right"><img src="virikspicture/image 21.png" alt="sylviapic"></div>
+        </div>
+        
+    </div>
+       <div class="studentsay">
+        <div class="containup">
+        <p class="para1">there are many variations of passages of Lorem Ipsum <br>
+ but the majority have suffered alteration in some form, by<br> injected humour, or randomised words which
+  don't look even <br>slightly believable. If you are going to use a passage.</p></div>
+        <div class="containdown">
+          <div class="c-left"><p class="para2">Reid E Butt</p><br>
+          <p class="para1">Student          ⭐⭐⭐⭐⭐</p></div>
+          <div class="c-right"><img src="virikspicture/image.png" alt="sylviapic"></div>
+        </div>
+        
+    </div></div>
+    
+        
+    
+      
+     <br><br><br>
+      <p class="para">Trending Now</p>
+      <p>here are many variations of passages orem psum available.</p>
+      <br><br>
+      <div id="container10">
+        <div class="box"><br><br><strong id="black"  > DEVELOPMENT</strong></div>
+        <div class="box"><br><br><strong id="black"  > DESIGN</strong></div>
+        <div class="box"><br><br><strong id="black"  > BUSINESS</strong></div>
+        <div class="box1"><br><br><h2>Python </h2><h3>Python 47,228,189 learners</h3></div>
+        <div class="box1"><br><br><h2>Blender</h2><h3>47,228,189 learners</h3></div>
+        <div class="box1"><br><h2>Business Management Professional</h2><h3>2,510,064 learners</h3></div>
+        <div class="box1"><br><br><h2>Web Development</h2><h3>47,228,189 learners</h3></div>
+        <div class="box1"><br><br><h2>Graphic Design</h2><h3>47,228,189 learners</h3></div>
+        <div class="box1"><br><br><h2>Microsoft Power BI</h2><h3>4,536,433 learners</h3></div>
+        <div class="box1"><br><br><h2>Data Science</h2><h3>47,228,189 learners</h3></div>
+        <div class="box1"><br><br><h2>Adobe Photoshop</h2><h3>47,228,189 learners</h3></div>
+        <div class="box1"><br><br><h2>Project Management</h2><h3>3,892,023 learners</h3></div>
+      </div>
+      <div id="container11">
+        <div id="upper">
+          <div class="up1"><ul class="no-style">
+            <li><h4>Academic</h4></li><br>
+            <li >CBSE</li>
+            <li>STATE BOARD</li>
+            <li>ICSE</li>
+          </ul>
+</div>
+          <div class="up1"><ul class="no-style">
+            <li><h4>Professional Courses</h4></li>
+            <br>
+            <li>JavaScript</li>
+            <li>React JS</li>
+            <li>Angular</li>
+            <li>Java</li>
+            <li>Wordpress</li>
+          </ul>
+</div>
+          <div class="up1"><ul class="no-style">
+            <li><h4>Data Science</h4></li><br>
+            <li>Python</li>
+            <li>Machine Learning</li>
+            <li>ChatGPT</li>
+            <li>Deep Learning</li>
+            <li>DeepSeek</li>
+          </ul>
+</div>
+          <div class="up1"><ul class="no-style">
+            <li><h4>Engineering & Medical</h4></li><br>
+            <li>NEET</li>
+            <li>JEE</li></div>
+        </div>
+        <br><br><br>
+        <div id="middle">
+          <div class="mid1"><ul class="no-style">
+            <li><h4>Govt Exam Preparation</h4></li><br>
+            <li>Banking & Insurance</li>
+            <li>SSC</li>
+            <li>Railways</li>
+            <li>Teaching</li>
+            <li>Defence</li>
+            <li>UPSC</li>
+            <li>CTET & STET</li>
+            <li>State Govt. Exams</li>
+          </ul></div>
+          <div class="mid1"><ul class="no-style">
+            <li><h4>Mock Test series</h4></li><br>
+            <li>Academic</li>
+            <li>State Govt Exam Mock Test</li>
+            <li>SBI Clerk Mock Test</li>
+            <li>SSC GD Mock Test</li>
+            <li>RRB NTPC Mock Test</li>
+            <li>SBI PO Mock Test</li>
+            <li>CTET Mock Test</li>
+            <li>SSC CGL Mock Test</li>
+            <li>RRB Group D Mock Test</li>
+            <li>CUET Mock Test</li>
+            <li>NEET Mock Test</li>
+            <li>IBPS PO Mock Test</li>
+          
+          </ul></div>
+          <div class="mid1"><ul class="no-style">
+            <li><h4>Communication</h4></li><br>
+            <li>Communication Skills</li>
+            <li>Presentation Skills</li>
+            <li>Public Speaking</li>
+            <li>Writing</li>
+            <li>PowerPoint</li>
+            <li><h4>Digital Marketing</h4></li><br>
+            <li>SEO</li>
+            <li>SMM</li>
+            <li>SEM</li>
+            <li>Meta Ads</li>
+            <li>Google Ads</li>
+            <li>PPC</li>              
+          </ul></div>
+          <div class="mid1"><ul class="no-style">
+            <li><h4>Leadership</h4></li><br>
+            <li>Leadership</li>
+            <li>Management Skills</li>
+            <li>Project Management</li>
+            <li>Personal Productivity</li>
+            <li>Emotional Intelligence</li>
+             <li><h4>Designing</h4></li><br>
+            <li>Graphic Designing</li>
+            <li>Video Editing</li>
+            <li>Canva</li>
+            <li>Adobe Illustrator</li>
+            <li>Adobe Photoshop</li>
+            <li>Adobe Premiere pro</li>
+          </ul></div>
+          
+        </div>
+        <br><br><br>
+        <div id="lower">
+          <div class="low1"><ul class="no-style">
+            <li><h4>Business Analytics </h4></li><br>
+            <li><h4> & Intelligence</h4></li><br>
+            <li>Microsoft Excel</li>
+            <li>SQL</li>
+            <li>Microsoft Power BI</li>
+            <li>Data Analysis</li>
+            <li>Business Analysis</li>
+            </div>
+          <div class="low1"><ul class="no-style">
+            <li><h4>Job Guaranteed </h4></li><br>
+            <li><h4>Courses</h4></li><br>
+            <li>Medical Coding</li>
+            <li>APDF</li>
+            <li>XML CONVERSION</li>
+            <li>E-PUB</li>
+            <li>CALL CENTER TRAINING (WFH)</li>
+            </div>
+          <div class="low1"><ul class="no-style">
+            <li><h4>Certifications by Issuer</h4></li><br>
+            <li>Amazon Web Services </li>
+            <li> (AWS)</li>
+            <li>Certifications</li>
+            <li>Six Sigma Certifications</li>
+            <li>Microsoft Certifications</li>
+            <li>Cisco Certifications</li>
+            <li>Tableau Certifications</li>
+            </div>
+            <div class="low1"><ul class="no-style">
+              <li><h4>Certifications by Skill</h4></li><br>
+            <li>Cybersecurity Certification</li>
+            <li>Project Management </li>
+            <li>Certification</li>
+            <li>Cloud Certification</li>
+            <li>Data Analytics Certification</li>
+            <li>HR Management Certification</li></ul>
+            </div>
+        </div>
+      </div>
+      <footer>
+      <div id="container12">
+        <div id="centre1">
+        <div class="display"><ul class="no-style">
+              <li><h4>VIRIKS</h4></li><br>
+            <li>Donec facilisis quam ut purus rutrum lobortis. </li>
+            <li>Donec vitae odio quis nisl dapibus malesuada. </li>
+            </div>
+        <div class="display"><ul class="no-style">
+              <li><h4>Home</h4></li><br>
+            <li>About Us</li>
+            <li>Career </li>
+            </div>
+        <div class="display"><ul class="no-style">
+              <li><h4>Upcoming Events</h4></li><br>
+            <li>Popular Courses</li>
+            <li>Become Instructor </li>
+            </div>
+        <div class="display"><ul class="no-style">
+              <li>Contact Us</h4></li><br>
+            <li>FAQ's</li>
+            <li>Terms Of Service </li>
+            <li>Privacy Policy</li>
+            </div>
+            <div class="display"><ul class="no-style"><li>Sign In</li>
+            <li>Sign Up </li></ul></div>
+            </div>
+            
+            <br><br><br><br>
+            <div id="container13">
+         </div> <br><br><br><br><hr > <br><br><br><br>
+          
+    <p>Copyright ©2025. VIRIKS All Rights Reserved.  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Terms & Conditions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Privacy Policy</p>
+
+     </div>    
+      </div>
+      
+
+
+
+
+
+
+
+</footer>
+</body>
+</html>
